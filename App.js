@@ -1,3 +1,4 @@
+'use strict'
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -14,7 +15,6 @@ import {
 } from 'react-native';
 
 // Components.
-import Board from './components/Board/Board';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -29,10 +29,6 @@ export default class App extends Component<Props> {
     const title = this.state.loggedIn ? 'Log Out' : 'Log In';
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          How lucky are you today?
-        </Text>
-        <Board />
       </View>
     );
   }
@@ -43,16 +39,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#272727',
-  },
-  loginButton: {
-    color: '#eaeaea',
-    backgroundColor: '#4444dd'
-  },
-  welcome: {
-    color: '#eaeaea',
-    fontSize: 40,
-    textAlign: 'center',
-    margin: 10,
+    backgroundColor: 'white',
   }
 });
