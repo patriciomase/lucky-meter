@@ -6,7 +6,7 @@ import {
   View
 } from 'react-native';
 
-import NavigationButton from '../NavigationButton/NavigationButton';
+import HomeScreenNavigation from '../HomeScreenNavigation/HomeScreenNavigation';
 
 class HomeScreen extends Component {
   constructor() {
@@ -16,7 +16,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <NavigationButton />
+        <HomeScreenNavigation />
       </View>
     );
   }
@@ -25,7 +25,6 @@ class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     paddingTop: 100
   },
   waitForButton: {
@@ -33,7 +32,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#ffffff',
     backgroundColor: '#990000',
-    padding: 20
   }
 });
 
