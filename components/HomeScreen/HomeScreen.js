@@ -6,6 +6,8 @@ import {
   View
 } from 'react-native';
 
+import NavigationButton from '../NavigationButton/NavigationButton';
+
 class HomeScreen extends Component {
   constructor() {
     super();
@@ -14,13 +16,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.description}>Wait for ...</Text>
-        <TouchableOpacity
-          style={styles.waitForButton}
-          onPress={this.onPress}
-        >
-          <Text> Touch Here </Text>
-        </TouchableOpacity>
+        <NavigationButton />
       </View>
     );
   }
@@ -29,15 +25,13 @@ class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20
-  },
-  description: {
-    fontSize: 18,
-    textAlign: 'center',
-    color: '#656565',
-    marginTop: 65,
+    padding: 20,
+    paddingTop: 100
   },
   waitForButton: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#ffffff',
     backgroundColor: '#990000',
     padding: 20
   }
