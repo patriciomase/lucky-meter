@@ -7,38 +7,33 @@
 
 import React, { Component } from 'react';
 import {
+  NavigatorIOS,
   Platform,
   StyleSheet,
   Text,
-  View,
-  Button
+  View
 } from 'react-native';
 
 // Components.
+import HomeScreen from './components/HomeScreen/HomeScreen';
 
-type Props = {};
-export default class App extends Component<Props> {
-  constructor() {
-    super();
-    this.state = {
-      loggedIn: false
-    }
-  }
-
+class App extends Component {
   render() {
-    const title = this.state.loggedIn ? 'Log Out' : 'Log In';
     return (
-      <View style={styles.container}>
-      </View>
+      <NavigatorIOS
+        style={styles.container}
+        initialRoute={{
+          title: 'MyTurn',
+          component: HomeScreen
+        }} />
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
+    flex: 1
   }
 });
+
+export default App;
