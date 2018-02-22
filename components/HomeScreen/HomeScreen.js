@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import HomeScreenNavigation from '../HomeScreenNavigation/HomeScreenNavigation';
+import HeroImage from '../HeroImage/HeroImage';
 
 class HomeScreen extends Component {
   constructor() {
@@ -16,6 +17,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <HeroImage />
         <HomeScreenNavigation />
       </View>
     );
@@ -25,7 +27,7 @@ class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 100
+    paddingTop: 60
   },
   waitForButton: {
     fontSize: 18,
