@@ -9,7 +9,7 @@ import {
 import HomeScreenNavigation from '../HomeScreenNavigation/HomeScreenNavigation';
 import HeroImage from '../HeroImage/HeroImage';
 
-class HomeScreen extends Component {
+class WaitForScreen extends Component {
   constructor() {
     super();
   }
@@ -18,7 +18,6 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <HeroImage />
-        <HomeScreenNavigation navigator={this.props.navigator}/>
       </View>
     );
   }
@@ -37,4 +36,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default WaitForScreen;

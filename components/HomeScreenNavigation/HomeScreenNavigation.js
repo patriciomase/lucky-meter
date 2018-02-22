@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import {
+  Button,
   StyleSheet,
   Text,
   TouchableOpacity,
+  View
 } from 'react-native';
 
 import TableView from 'react-native-tableview'
+import WaitForScreen from '../WaitForScreen/WaitForScreen';
 
 const { Section, Item } = TableView;
 
@@ -15,6 +18,14 @@ const options = [
 ];
 
 const HomeScreenNavigation = (props) => {
+  console.log('navigating');
+  const onPress = () => {
+    props.navigator.push({
+      component: WaitForScreen,
+      title: 'Bar That',
+      passProps: { myProp: 'bar' }
+    })
+  }
   return (
     <TableView
       style={{ flex: 1 }}
@@ -24,7 +35,11 @@ const HomeScreenNavigation = (props) => {
         {options.map(opt => <Item
           key={opt}
           accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-          >{opt}</Item>)}
+          onPress={onPress}
+          >
+            {opt}
+          </Item>
+        )}
       </Section>
     </TableView>
   );
