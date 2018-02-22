@@ -25,16 +25,21 @@ const HomeScreenNavigation = (props) => {
         tableViewCellStyle={TableView.Consts.CellStyle.Subtitle}
       >
         <Section>
-            <Item
-              key={1}
-              accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-              onPress={() => {
-                props.navigator.push(routes.waitFor);
-              }}
-              >
-              {'Wait for ...'}
-            </Item>
+          <Item
+            key={1}
+            accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
+            onPress={() => props.navigator.push(routes.waitFor)}
+          >
+            {'Wait for ...'}
+          </Item>
 
+          <Item
+            key={2}
+            accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
+            onPress={() => props.navigator.push(routes.waitingsList)}
+          >
+            {'See what I\'m waiting for'}
+          </Item>
         </Section>
       </TableView>
     } />
