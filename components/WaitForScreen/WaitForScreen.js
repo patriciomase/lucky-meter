@@ -16,7 +16,7 @@ class WaitForScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <HeroImage />
+        <HeroImage path={ require('./qr-code-art.jpg') }/>
       </View>
     );
   }

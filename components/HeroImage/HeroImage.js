@@ -3,10 +3,10 @@ import {
   Image
 } from 'react-native';
 
-const HeroImage = () => {
+const HeroImage = ({ path = null }) => {
   return (
     <Image
-      source={ require('./waitingheader.jpg')}
+      source={ path || require('./waitingheader.jpg')}
       style={{
         maxHeight: 140
       }}
