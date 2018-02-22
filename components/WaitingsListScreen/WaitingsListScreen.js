@@ -8,7 +8,7 @@ import {
 
 import HeroImage from '../HeroImage/HeroImage';
 
-class WaitForScreen extends Component {
+class WaitingsListScreen extends Component {
   constructor() {
     super();
   }
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default WaitForScreen;
+export default WaitingsListScreen;
