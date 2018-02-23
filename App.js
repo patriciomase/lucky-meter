@@ -16,16 +16,26 @@ import {
 
 // Components.
 import HomeScreen from './components/HomeScreen/HomeScreen';
+import AppState from './components/AppState/AppState';
 
 class App extends Component {
   render() {
     return (
-      <NavigatorIOS
-        style={styles.container}
-        initialRoute={{
-          title: 'MyTurn',
-          component: HomeScreen
-        }} />
+      <AppState>
+        {(state, actions) => 
+          <NavigatorIOS
+            style={styles.container}
+            initialRoute={{
+              title: 'MyTurn',
+              component: HomeScreen,
+              passProps: {
+                actions: actions,
+                ...state
+              }
+            }}
+          />
+        }
+      </AppState>
     );
   }
 }

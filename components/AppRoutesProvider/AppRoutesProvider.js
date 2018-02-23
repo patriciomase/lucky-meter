@@ -4,16 +4,29 @@ import React from 'react';
 import WaitForScreen from '../WaitForScreen/WaitForScreen';
 import WaitingsListScreen from '../WaitingsListScreen/WaitingsListScreen';
 
-const AppRoutesProvider = ({ render }) => {
-  return render({
+const AppRoutesProvider = ({ children, passProps }) => {
+  return children({
+    // Home Screen Routes.
     waitFor: {
       component: WaitForScreen,
-      title: 'So you wanna wait'
+      title: 'Scar QR code',
+      passProps: passProps
+    },
+    enterManually: {
+      component: WaitingsListScreen,
+      title: 'Enter code manually',
+      passProps: passProps
     },
     waitingsList: {
       component: WaitingsListScreen,
-      title: 'I\'m waiting for'
-    }
+      title: 'I\'m waiting for',
+      passProps: passProps
+    },
+    seeMore: {
+      component: WaitingsListScreen,
+      title: 'See more things to wait for',
+      passProps: passProps
+    },
   });
 }
 
