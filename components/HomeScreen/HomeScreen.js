@@ -18,7 +18,13 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <HeroImage />
-        <HomeScreenNavigation navigator={this.props.navigator}/>
+        <HomeScreenNavigation
+          navigator={this.props.navigator}
+          passProps={{ 
+            waitingsList: this.props.waitingsList,
+            actions: this.props.actions 
+          }}
+        />
       </View>
     );
   }
