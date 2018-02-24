@@ -20,7 +20,11 @@ const AppRoutesProvider = ({ children, passProps }) => {
     waitingsList: {
       component: WaitingsListScreen,
       title: 'I\'m waiting for',
-      passProps: passProps
+      passProps: passProps,
+      rightButtonTitle: passProps.editingWaitingsList ? 'End editting' : 'Edit',
+      onRightButtonPress: () => {
+        passProps.actions.toggleEditingWaitingsList()
+      }
     },
     seeMore: {
       component: WaitingsListScreen,
