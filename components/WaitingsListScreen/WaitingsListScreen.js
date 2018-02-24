@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import HeroImage from '../HeroImage/HeroImage';
+import WaitingsList from '../WaitingsList/WaitingsList';
 
 class WaitingsListScreen extends Component {
   constructor() {
@@ -14,9 +15,10 @@ class WaitingsListScreen extends Component {
   }
 
   render() {
+    console.log('tsgnd', this.props)
     return (
       <View style={styles.container}>
-        <HeroImage />
+        <WaitingsList {...this.props} />
       </View>
     );
   }

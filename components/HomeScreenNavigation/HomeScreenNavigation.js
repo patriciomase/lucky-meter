@@ -63,23 +63,6 @@ const HomeScreenNavigation = (props) => {
               {'See more things to wait for'}
             </Item>
           </Section>
-
-          <Section label={'SASasa'}>
-            {
-              props.passProps.waitingsList.map(item => {
-                return (
-                  <Item
-                    key={item.title}
-                    accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-                    onPress={() => props.navigator.push(routes.seeMore)}
-                  >
-                    {item.title}
-                  </Item>
-                );
-              }
-              )
-            }
-          </Section>
         </TableView>
       }
     </AppRoutesProvider>
