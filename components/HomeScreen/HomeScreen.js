@@ -10,6 +10,10 @@ import HomeScreenNavigation from '../HomeScreenNavigation/HomeScreenNavigation';
 import HeroImage from '../HeroImage/HeroImage';
 
 class HomeScreen extends Component {
+  static navigationOptions = {
+    title: 'MyTurn'
+  };
+
   constructor() {
     super();
   }
@@ -18,13 +22,7 @@ class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <HeroImage />
-        <HomeScreenNavigation
-          navigator={this.props.navigator}
-          passProps={{ 
-            waitingsList: this.props.waitingsList,
-            actions: this.props.actions 
-          }}
-        />
+        <HomeScreenNavigation {...this.props}/>
       </View>
     );
   }
