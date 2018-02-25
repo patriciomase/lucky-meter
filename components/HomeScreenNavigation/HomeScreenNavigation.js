@@ -12,60 +12,51 @@ import AppRoutesProvider from '../AppRoutesProvider/AppRoutesProvider';
 
 const { Section, Item } = TableView;
 
-const options = [
-  'Wait for ...',
-  'See waiting lists'
-];
-
 const HomeScreenNavigation = (props) => {
   return (
-    <AppRoutesProvider passProps={props.passProps}>
-      {(routes) =>
-        <TableView
-          style={{ flex: 1 }}
-          tableViewCellStyle={TableView.Consts.CellStyle.Subtitle}
-          tableViewStyle={TableView.Consts.Style.Grouped}
+    <TableView
+      style={{ flex: 1 }}
+      tableViewCellStyle={TableView.Consts.CellStyle.Subtitle}
+      tableViewStyle={TableView.Consts.Style.Grouped}
+    >
+      <Section label={'Add new'}>
+        <Item
+          key={1}
+          accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
+          onPress={() => {props.navigation.navigate('WaitForScreen')}}
         >
-          <Section label={'Add new'}>
-            <Item
-              key={1}
-              accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-              onPress={() => props.navigator.push(routes.waitFor)}
-            >
-              {'Wait for ...'}
-            </Item>
+          {'Wait for ...'}
+        </Item>
 
-            <Item
-              key={2}
-              accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-              onPress={() => props.navigator.push(routes.enterManually)}
-            >
-              {'Enter code manually'}
-            </Item>
-          </Section>
+        <Item
+          key={2}
+          accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
+          onPress={() => {}}
+        >
+          {'Enter code manually'}
+        </Item>
+      </Section>
 
-          <Section label={'Saved'}>
-            <Item
-              key={3}
-              accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-              onPress={() => props.navigator.push(routes.waitingsList)}
-            >
-              {'See what I\'m waiting for'}
-            </Item>
-          </Section>
+      <Section label={'Saved'}>
+        <Item
+          key={3}
+          accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
+          onPress={() => {}}
+        >
+          {'See what I\'m waiting for'}
+        </Item>
+      </Section>
 
-          <Section label={'Explore'}>
-            <Item
-              key={4}
-              accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-              onPress={() => props.navigator.push(routes.seeMore)}
-            >
-              {'See more things to wait for'}
-            </Item>
-          </Section>
-        </TableView>
-      }
-    </AppRoutesProvider>
+      <Section label={'Explore'}>
+        <Item
+          key={4}
+          accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
+          onPress={() => {}}
+        >
+          {'See more things to wait for'}
+        </Item>
+      </Section>
+    </TableView>
   );
 }
 

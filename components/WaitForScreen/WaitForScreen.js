@@ -9,6 +9,10 @@ import {
 import HeroImage from '../HeroImage/HeroImage';
 
 class WaitForScreen extends Component {
+  static navigationOptions = {
+    title: 'Scan QR code'
+  }
+
   constructor() {
     super();
   }

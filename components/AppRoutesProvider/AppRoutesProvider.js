@@ -4,32 +4,24 @@ import React from 'react';
 import WaitForScreen from '../WaitForScreen/WaitForScreen';
 import WaitingsListScreen from '../WaitingsListScreen/WaitingsListScreen';
 
-const AppRoutesProvider = ({ children, passProps }) => {
+const AppRoutesProvider = ({ children }) => {
   return children({
     // Home Screen Routes.
     waitFor: {
       component: WaitForScreen,
-      title: 'Scar QR code',
-      passProps: passProps
+      title: 'Scar QR code'
     },
     enterManually: {
       component: WaitingsListScreen,
-      title: 'Enter code manually',
-      passProps: passProps
+      title: 'Enter code manually'
     },
     waitingsList: {
       component: WaitingsListScreen,
-      title: 'I\'m waiting for',
-      passProps: passProps,
-      rightButtonTitle: passProps.editingWaitingsList ? 'End editting' : 'Edit',
-      onRightButtonPress: () => {
-        passProps.actions.toggleEditingWaitingsList()
-      }
+      title: 'I\'m waiting for'
     },
     seeMore: {
       component: WaitingsListScreen,
-      title: 'See more things to wait for',
-      passProps: passProps
+      title: 'See more things to wait for'
     },
   });
 }
