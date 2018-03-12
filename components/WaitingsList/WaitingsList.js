@@ -4,22 +4,23 @@ import { StyleSheet } from 'react-native';
 import TableView from 'react-native-tableview'
 const { Section, Item } = TableView;
 
-const WaitingsList = ({ editingWaitingsList, waitingsList }) => {
-  console.log('editing', editingWaitingsList)
+const WaitingsList = ({ add, items }) => {
   return (
     <TableView
-      editing={editingWaitingsList}
+      editing={false}
       style={{ flex: 1 }}
       tableViewCellStyle={TableView.Consts.CellStyle.Subtitle}
       tableViewStyle={TableView.Consts.Style.Grouped}
     >
       <Section canMove canEdit label={'My saved waitings'}>
         {
-          waitingsList.map(item => {
+          items.map(item => {
             return (
               <Item
                 key={item.title}
-                onPress={() => {}}
+                onPress={() => {
+                  add('new one');
+                }}
               >
                 {item.title}
               </Item>

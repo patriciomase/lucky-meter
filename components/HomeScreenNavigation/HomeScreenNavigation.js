@@ -41,7 +41,7 @@ const HomeScreenNavigation = (props) => {
         <Item
           key={3}
           accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-          onPress={() => {}}
+          onPress={() => { props.navigation.navigate('waitingsList') }}
         >
           {'See what I\'m waiting for'}
         </Item>

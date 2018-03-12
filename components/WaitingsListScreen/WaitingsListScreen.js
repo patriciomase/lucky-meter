@@ -12,13 +12,28 @@ import WaitingsList from '../WaitingsList/WaitingsList';
 class WaitingsListScreen extends Component {
   constructor() {
     super();
+    this.state = {
+      items: [
+        {
+          title: 'sasasa'
+        }
+      ]
+    }
   }
 
   render() {
-    console.log('tsgnd', this.props)
     return (
       <View style={styles.container}>
-        <WaitingsList {...this.props} />
+        <WaitingsList
+          items={this.state.items}
+          add={(item) => {
+            this.setState(state => {
+              return {
+                items: state.items.concat(item)
+              }
+            })
+          }}
+        />
       </View>
     );
   }
