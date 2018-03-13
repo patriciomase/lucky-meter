@@ -9,8 +9,8 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 
 // Components.
-import HomeScreen from './components/HomeScreen/HomeScreen';
 import AppState from './components/AppState/AppState';
+import HomeScreen from './components/HomeScreen/HomeScreen';
 import WaitForScreen from './components/WaitForScreen/WaitForScreen';
 import WaitingsListScreen from './components/WaitingsListScreen/WaitingsListScreen';
 
@@ -42,7 +42,14 @@ const RootStack = StackNavigator({
 class App extends Component {
   render() {
     return (
-      <RootStack />
+      <AppState>
+      {
+        (state, actions) => <RootStack screenProps={{
+          state: state,
+          actions: actions
+        }} />
+      }
+      </AppState>
     );
   }
 }
