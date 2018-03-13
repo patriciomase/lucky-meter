@@ -25,13 +25,9 @@ class WaitingsListScreen extends Component {
     return (
       <View style={styles.container}>
         <WaitingsList
-          items={this.state.items}
+          items={this.props.screenProps.state.waitingsList}
           add={(item) => {
-            this.setState(state => {
-              return {
-                items: state.items.concat(item)
-              }
-            })
+            this.props.screenProps.actions.addWaiting(item);
           }}
         />
       </View>

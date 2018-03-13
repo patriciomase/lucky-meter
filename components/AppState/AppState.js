@@ -17,7 +17,7 @@ class AppState extends Component {
   addWaiting(item) {
     this.setState((state) => {
       return {
-        waitingsList: state.concat(item)
+        waitingsList: state.waitingsList.concat(item)
       }
     })
   }
