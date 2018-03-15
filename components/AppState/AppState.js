@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 
+function addWaiting(item) {
+  return (state) => {
+    return {
+      waitingsList: state.waitingsList.concat(item)
+    }
+  }
+}
+
 class AppState extends Component {
   constructor(props) {
     super(props);
@@ -10,16 +18,7 @@ class AppState extends Component {
       ]
     }
 
-    this.addWaiting = this.addWaiting.bind(this);
     this.toggleEditingWaitingsList = this.toggleEditingWaitingsList.bind(this);
-  }
-
-  addWaiting(item) {
-    this.setState((state) => {
-      return {
-        waitingsList: state.waitingsList.concat(item)
-      }
-    })
   }
 
   toggleEditingWaitingsList() {
@@ -35,7 +34,7 @@ class AppState extends Component {
     return this.props.children(
       this.state,
       {
-        addWaiting: this.addWaiting,
+        addWaiting: (item) => this.setState(addWaiting(item)),
         toggleEditingWaitingsList: this.toggleEditingWaitingsList
       }
     );
