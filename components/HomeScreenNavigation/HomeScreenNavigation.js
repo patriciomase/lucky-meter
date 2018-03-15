@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 
 import TableView from 'react-native-tableview'
-import AppRoutesProvider from '../AppRoutesProvider/AppRoutesProvider';
 
 const { Section, Item } = TableView;
 
@@ -41,7 +40,7 @@ const HomeScreenNavigation = (props) => {
         <Item
           key={3}
           accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-          onPress={() => { props.navigation.navigate('waitingsList') }}
+          onPress={() => {props.navigation.navigate('waitingsList')}}
         >
           {'See what I\'m waiting for'}
         </Item>
@@ -51,7 +50,7 @@ const HomeScreenNavigation = (props) => {
         <Item
           key={4}
           accessoryType={TableView.Consts.AccessoryType.DisclosureIndicator}
-          onPress={() => {}}
+          onPress={() => {props.navigation.navigate('weCanWaitFor')}}
         >
           {'See more things to wait for'}
         </Item>
