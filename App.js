@@ -13,6 +13,7 @@ import AppState from './components/AppState/AppState';
 import HomeScreen from './components/HomeScreen/HomeScreen';
 import WaitForScreen from './components/WaitForScreen/WaitForScreen';
 import WaitingsListScreen from './components/WaitingsListScreen/WaitingsListScreen';
+import WeCanWaitForScreen from './components/WeCanWaitForScreen/WeCanWaitForScreen';
 
 const RootStack = StackNavigator({
     Home: {
@@ -33,6 +34,10 @@ const RootStack = StackNavigator({
       screen: WaitingsListScreen,
       title: 'See more things to wait for'
     },
+    weCanWaitFor: {
+      screen: WeCanWaitForScreen,
+      title: 'Things to wait for'
+    }
   },
   {
     initialRouteName: 'Home'

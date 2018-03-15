@@ -2,7 +2,18 @@ import React, { Component } from 'react';
 
 function initialState() {
   return {
+    // Editing flag.
     editingWaitingsList: false,
+
+    // Things that we can wait for.
+    weCanWaitFor: [
+      { title: 'Que baje el dolar.', id: 1 },
+      { title: 'Turno en la peluquería', id: 2 },
+      { title: 'Mesa en el restaurante pepito', id: 3 },
+      { title: 'Turno en el lubricentro', id: 4 }
+    ],
+
+    // Currently waiting for this.
     waitingsList: [{
       title: 'First test harcoded item'
     }]
