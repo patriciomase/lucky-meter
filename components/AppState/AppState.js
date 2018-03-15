@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 
+function initialState() {
+  return {
+    editingWaitingsList: false,
+    waitingsList: [{
+      title: 'First test harcoded item'
+    }]
+  }
+}
+
 function addWaiting(item) {
   return (state) => {
     return {
@@ -8,26 +17,16 @@ function addWaiting(item) {
   }
 }
 
+function toggleEditingWaitingsList(state) {
+  return {
+    editingWaitingsList: !state.editingWaitingsList
+  }
+}
+
 class AppState extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      editingWaitingsList: false,
-      waitingsList: [
-        { title: 'First test harcoded item'}
-      ]
-    }
-
-    this.toggleEditingWaitingsList = this.toggleEditingWaitingsList.bind(this);
-  }
-
-  toggleEditingWaitingsList() {
-    console.log('toggling', this.state.editingWaitingsList);
-    this.setState(state => {
-      return {
-        editingWaitingsList: !state.editingWaitingsList
-      }
-    })
+    this.state = initialState()
   }
 
   render() {
@@ -35,7 +34,7 @@ class AppState extends Component {
       this.state,
       {
         addWaiting: (item) => this.setState(addWaiting(item)),
-        toggleEditingWaitingsList: this.toggleEditingWaitingsList
+        toggleEditingWaitingsList: () => this.setState(toggleEditingWaitingsList)
       }
     );
   }
