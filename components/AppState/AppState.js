@@ -15,7 +15,7 @@ function initialState() {
 
     // Currently waiting for this.
     waitingsList: [{
-      title: 'First test harcoded item'
+      title: 'Que baje el dolar', id: 1
     }]
   }
 }
@@ -34,6 +34,22 @@ function toggleEditingWaitingsList(state) {
   }
 }
 
+function toggleWaiting(item) {
+  console.log('item', item);
+  return (state) => {
+    if (state.waitingsList.map(i => i.id).includes(item.id)) {
+      return {
+        waitingsList: state.waitingsList.filter(i => {
+          return i.id !== item.id
+        })
+      }
+    }
+    return {
+      waitingsList: state.waitingsList.concat({ title: item.title, id: item.id })
+    }
+  }
+}
+
 class AppState extends Component {
   constructor(props) {
     super(props);
@@ -45,7 +61,8 @@ class AppState extends Component {
       this.state,
       {
         addWaiting: (item) => this.setState(addWaiting(item)),
-        toggleEditingWaitingsList: () => this.setState(toggleEditingWaitingsList)
+        toggleEditingWaitingsList: () => this.setState(toggleEditingWaitingsList),
+        toggleWaiting: (item) => this.setState(toggleWaiting(item))
       }
     );
   }

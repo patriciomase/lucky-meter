@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
 
 import TableView from 'react-native-tableview'
 const { Section, Item } = TableView;
 
-const WaitingsList = ({ add, items }) => {
+const WeCanWaitForList = ({ current, items, toggleWaiting }) => {
+  console.log(items);
   return (
     <TableView
       editing={false}
@@ -12,14 +12,18 @@ const WaitingsList = ({ add, items }) => {
       tableViewCellStyle={TableView.Consts.CellStyle.Subtitle}
       tableViewStyle={TableView.Consts.Style.Grouped}
     >
-      <Section canMove canEdit label={'My saved waitings'}>
+      <Section canMove canEdit>
         {
           items.map(item => {
+            const selected = current.map(i => i.id).includes(item.id);
+            const onPress = selected ? () => { } : (item) => { toggleWaiting(item) };
             return (
               <Item
+                id={item.id}
                 key={item.title}
-                onPress={() => {
-                }}
+                onPress={onPress}
+                selected={selected}
+                title={item.title}
               >
                 {item.title}
               </Item>
@@ -32,4 +36,4 @@ const WaitingsList = ({ add, items }) => {
   );
 }
 
-export default WaitingsList;
+export default WeCanWaitForList;

@@ -28,8 +28,7 @@ class WaitForScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 60
+    flex: 1
   },
   waitForButton: {
     fontSize: 18,
