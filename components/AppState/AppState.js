@@ -6,17 +6,20 @@ function initialState() {
     editingWaitingsList: false,
 
     // Things that we can wait for.
-    weCanWaitFor: [
-      { title: 'Que baje el dolar.', id: 1 },
-      { title: 'Turno en la peluquería', id: 2 },
-      { title: 'Mesa en el restaurante pepito', id: 3 },
-      { title: 'Turno en el lubricentro', id: 4 }
-    ],
+    weCanWaitFor: [],
 
     // Currently waiting for this.
     waitingsList: [{
       title: 'Que baje el dolar', id: 1
     }]
+  }
+}
+
+function setInitialValue(key, value) {
+  return (state) => {
+    return {
+      [key]: value
+    }
   }
 }
 
@@ -28,6 +31,11 @@ function addWaiting(item) {
   }
 }
 
+function fetchWhatWeCanWait() {
+  return fetch('http://localhost:8080/we-can-wait-for.json')
+    .then(response => response.json());
+}
+
 function toggleEditingWaitingsList(state) {
   return {
     editingWaitingsList: !state.editingWaitingsList
@@ -35,7 +43,6 @@ function toggleEditingWaitingsList(state) {
 }
 
 function toggleWaiting(item) {
-  console.log('item', item);
   return (state) => {
     if (state.waitingsList.map(i => i.id).includes(item.id)) {
       return {
@@ -54,6 +61,13 @@ class AppState extends Component {
   constructor(props) {
     super(props);
     this.state = initialState()
+  }
+
+  componentDidMount() {
+    fetchWhatWeCanWait()
+      .then(response => this.setState(
+        setInitialValue('weCanWaitFor', response.data))
+      );
   }
 
   render() {
